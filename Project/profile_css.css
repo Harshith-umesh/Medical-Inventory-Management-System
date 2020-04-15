@@ -1,0 +1,116 @@
+/*Navigation Bar Styling*/
+
+body {
+        margin: 0;
+}
+
+.log {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 30px;
+        color: white;
+        line-height: 1.2;
+        padding-bottom: 44px;
+}
+
+.topnav {
+        background-color: black;
+}
+
+.topnav ul {
+        list-style-type: none;
+        margin: 0;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background-color: black;
+        display: inline-block;
+        position: relative;
+        left: 41%;
+}
+
+li {
+        display: inline;
+        padding-left: 10px;
+        padding-right: 10px;
+}
+
+a {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: white;
+        font-size: 25px;
+        background-color: black;
+        text-align: center;
+        text-decoration: none;
+}
+
+img.logo {
+        height: 80px;
+        float: left;
+        margin-left: 20px;
+}
+
+@keyframes head {
+        0% {
+                font-size: 0;
+                opacity: 0;
+        }
+        100% {
+                font-size: 100px;
+                opacity: 1;
+        }
+}
+
+/*Navigation Bar Styling Ends*/
+
+/* (1366x768) WXGA Display */
+
+@media screen and (max-width: 1366px) {
+        /*Navigation Bar Styling*/
+        body {
+                margin: 0;
+                margin-right: 0;
+        }
+        .topnav {
+                background-color: black;
+                width: 100%;
+        }
+        .topnav ul {
+                list-style-type: none;
+                margin: 0;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                background-color: black;
+                display: inline-block;
+                position: relative;
+                left: 21.5%;
+        }
+        li {
+                display: inline;
+                padding-left: 10px;
+        }
+        a {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                color: white;
+                font-size: 25px;
+                background-color: black;
+                text-align: center;
+                text-decoration: none;
+        }
+        img.logo {
+                height: 80px;
+                float: left;
+                margin-left: 20px;
+        }
+        @keyframes head {
+                0% {
+                        font-size: 0;
+                        opacity: 0;
+                }
+                100% {
+                        font-size: 100px;
+                        opacity: 1;
+                }
+        }
+        /*Navigation Bar Styling Ends*/
+}

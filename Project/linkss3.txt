@@ -1,0 +1,7 @@
+</div>
+			<div class="testimonial" style="height:350px; width:27%; left:65%; position:absolute; border:solid white 2px;">
+				<i class="fa fa-quote-left" aria-hidden="true" style="size:10px; color:white; padding-left:10%; padding-top:20%;"></i>
+				<p style="text-align:center; padding-left:10%; padding-top:2%; padding-right:10%;">I'm a platelet donor and I've been donating for a few years. I enjoy giving platelets and know that I'm giving back to the community. Every time I donate its always a pleasant experience primarily because the staff at the Seva Donor Center has made it so. </p>
+				<p style="text-align:right; padding-right:15%;">	-Mukund Kadlabal </p>
+				<i class="fa fa-quote-right" aria-hidden="true" style="size:10px; color:white; padding-left:85%; padding-top:2%;"></i>
+			</div>

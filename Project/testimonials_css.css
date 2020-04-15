@@ -1,0 +1,167 @@
+/*Navigation Bar Styling*/
+body{
+        margin: 0;
+}
+
+.topnav{
+        background-color: black;
+
+}
+.log{
+  font-family: 'Montserrat',sans-serif;
+  font-size: 30px;
+  color: white;
+  line-height: 1.2;
+  padding-bottom: 44px;
+}
+.topnav ul{
+       list-style-type: none;
+        margin: 0;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background-color: black;
+        display: inline-block;
+        position: relative;
+        left: 41%;
+
+}
+li{
+        display : inline;
+        padding-left: 10px;
+        padding-right: 10px;
+}
+a{
+
+        font-family: 'Montserrat',sans-serif;
+        font-weight: 700;
+        color : white;
+        font-size: 25px;
+        background-color: black;
+        text-align: center;
+        text-decoration: none;
+}
+
+img.logo{
+        height: 80px;
+        float: left;
+        margin-left: 20px;
+}
+@keyframes head {
+
+        0% {font-size:0; opacity:0;}
+        100% {font-size:100px;opacity:1;}
+}
+
+/*Navigation Bar Styling Ends*/
+
+/*Testimonials Styling*/
+.reviews{
+        /*background-color: black;*/
+        background-image : url("../Images/cropped-bdsbackground.jpg");
+        background-repeat : no-repeat;
+        background-color: #cccccc;
+        height: 100%;
+        margin: 0;
+        background-size: cover;
+        width: 100%;
+
+}
+
+p.reviewp{
+        font-family: 'Montserrat',sans-serif;
+        font-weight: 700;
+        color: white;
+        font-size:70px;
+        margin-top: 0px;
+        padding-top: 10px;
+        margin-right: 50px;
+		margin-left: 50px;
+        text-align: center;
+}
+
+.testimonial
+{
+    color:white;
+}
+
+/* (1366x768) WXGA Display */
+@media  screen and (max-width: 1366px) {
+    /*Navigation Bar Styling*/
+        body{
+                margin: 0;
+                margin-right: 0;
+        }
+        .topnav{
+                background-color: black;
+                width: 100%;
+
+        }
+        .topnav ul{
+               list-style-type: none;
+                margin: 0;
+
+                padding-top: 30px;
+                padding-bottom: 30px;
+                background-color: black;
+                display: inline-block;
+                position: relative;
+                left: 21.5%;
+
+        }
+        li{
+                display : inline;
+                padding-left: 10px;
+
+        }
+        a{
+
+                font-family: 'Montserrat',sans-serif;
+                font-weight: 700;
+                color : white;
+                font-size: 25px;
+                background-color: black;
+                text-align: center;
+                text-decoration: none;
+        }
+
+        img.logo{
+                height: 80px;
+                float: left;
+                margin-left: 20px;
+        }
+        @keyframes head {
+
+                0% {font-size:0; opacity:0;}
+                100% {font-size:100px;opacity:1;}
+        }
+
+        /*Navigation Bar Styling Ends*/
+
+        /*Testimonials Styling*/
+        .reviews{
+                background-image : url("../Images/cropped-bdsbackground.jpg");
+                background-repeat : no-repeat;
+                background-color: #cccccc;
+                height: 87%;
+                margin: 0;
+                background-size: cover;
+                width: 100%;
+        }
+
+        p.reviewp{
+                font-family: 'Montserrat',sans-serif;
+                font-weight: 700;
+                color: white;
+                font-size:70px;
+                margin-top: 0px;
+                padding-top: 10px;
+                margin-right: 50px;
+                margin-left: 50px;
+                text-align: center;
+        }
+
+        .testimonial
+        {
+            color:white;
+        }
+}

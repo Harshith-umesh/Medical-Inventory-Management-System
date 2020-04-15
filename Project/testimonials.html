@@ -1,0 +1,96 @@
+<link rel="stylesheet" type="text/css" href="testimonials_css.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+<html>
+
+<head>
+
+    <title>Multi Stage Download</title>
+
+    <script>
+
+        var xhr = new XMLHttpRequest();
+        var file;
+        var n = 0;
+        var n1 = 0;
+
+
+        setTimeout(getLinks, 1000)
+
+
+        function getLinks() {
+            n1 = n1 + 1;
+            if (n1 <= 4) {
+                file = "linkss".concat(n1);
+                file = file.concat(".txt");
+                xhr.onreadystatechange = showLinks;
+                xhr.open("GET", file, true);
+                xhr.send();
+            }
+        }
+        function showLinks() {
+            if (xhr.readyState == 4 && xhr.status == 200 && n1 == 1) {
+                document.getElementById("imgdes").innerHTML = xhr.responseText;
+                setTimeout(getLinks, 1000);
+                console.log(xhr.readyState);
+            }
+            else if (xhr.readyState == 4 && xhr.status == 200 && n1 == 2) {
+                document.getElementById("imgdes1").innerHTML = xhr.responseText;
+                setTimeout(getLinks, 1000);
+                console.log(xhr.readyState);
+            }
+            else if (xhr.readyState == 4 && xhr.status == 200 && n1 == 3) {
+                document.getElementById("imgdes5").innerHTML = xhr.responseText;
+                setTimeout(getLinks, 1000);
+                console.log(xhr.readyState);
+            }
+        }
+
+        window.onload = function () {
+            var cookie = document.cookie;
+            var splitStr = cookie.split("=");
+            if (splitStr[1] == "nothing") {
+                //alert("Please Login");
+                //window.location.replace("login.html");
+            }
+            else {
+                var user_dom = document.getElementById("user_info");
+                user_dom.innerHTML = splitStr[1];
+                var login_dom = document.getElementById("login");
+                login_dom.innerHTML = "Logout";
+                login_dom.setAttribute("href", "home.html");
+                login_dom.setAttribute("onclick", "handle_logout()");
+            }
+        }
+
+    </script>
+</head>
+<body style="overflow-y: hidden;">
+
+    <div class="navbar">
+        <div class="topnav">
+            <img src="../Images/LOGO1.jpg" class="logo" />
+            <b class="log" id="user_info">&nbsp;&nbsp;SEVA</b>
+
+            <ul class="nav" style="margin-left:-25%">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="seek.html">Seek</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="faq.html"> FAQs </a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="login.html" id="login">Login/SignUp</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="reviews">
+        <p class="reviewp">Testimonials</p>
+        <div class="content" id="imgdes"></div>
+        <div class="content" id="imgdes1"></div>
+        <div class="content" id="imgdes5"></div>
+    </div>
+</body>
+
+</html>

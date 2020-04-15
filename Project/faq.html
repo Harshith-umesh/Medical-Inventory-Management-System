@@ -1,0 +1,154 @@
+<!--Homepage of Soulo Ride Website-->
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<!--Webpage Starts-->
+<html>
+<!--Head Starts-->
+
+<head>
+	<!--Document Level Styling if needed-->
+	<style>
+		/*Styling if any goes here*/
+	</style>
+	<title>Seva | Blood Bank</title>
+	<!--Title of the webpage-->
+</head>
+<meta name="viewport" content="width=device-width">
+<!--Responsive Webpage-->
+<!--Head Ends-->
+<!--Body Starts-->
+
+<body>
+	<!--Large Header Section Starts Here-->
+	<div class="navbar">
+		<div class="topnav">
+			<img src="../Images/LOGO1.jpg" class="logo" />
+			<b class="log" id="user_info">&nbsp;&nbsp;SEVA</b>
+
+			<ul class="nav" style="margin-left:-25%">
+				<li><a href="home.html">Home</a></li>
+				<li><a href="donate.html">Donate</a></li>
+				<li><a href="seek.html">Seek</a></li>
+				<li><a href="profile.html">Profile</a></li>
+				<li><a href="testimonials.html">Testimonials</a></li>
+				<li><a href="faq.html"> FAQs </a></li>
+				<li><a href="contact.html">Contact Us</a></li>
+				<li><a href="login.html" id="login">Login/SignUp</a></li>
+			</ul>
+		</div>
+		<!--FAQ's Section Starts Here-->
+		<div class="faqs" id="faqsi">
+			<p class="faqp"><i>Blood Donation FAQ'S</i></p><br><br>
+
+			<button class="accordion">
+				What are the minimum requirements to become a blood donor?
+			</button>
+			<div class="panel">
+				<p>Check with your local blood bank to determine the specific requirements. You must be at least 16
+					years of age, a minimum of 110 pounds, and in basic good health.</p>
+			</div>
+
+			<button class="accordion">
+				Will donating blood hurt?
+			</button>
+			<div class="panel">
+				<p>You might feel a slight sting in the beginning lasting only a couple of seconds, but there should be
+					no discomfort during the donation</p>
+			</div>
+
+			<button class="accordion">
+				Are blood donors paid?
+			</button>
+			<div class="panel">
+				<p>No. Blood collected for transfusion in India is collected from volunteer blood donors.</p>
+			</div>
+
+
+			<button class="accordion">
+				How badly is blood needed?
+			</button>
+			<div class="panel">
+				<p>Blood supplies vary depending on the region and time of year. As more restrictive donor criteria are
+					necessary to protect the safety of the blood supply and as the donor population ages, the inventory
+					levels are affected across the nation. If you are eligible, your blood donations are needed. The
+					inventory levels of blood would be more consistently maintained if more of those who are eligible
+					donate 1-2 times each year.</p>
+			</div>
+
+			<button class="accordion">
+				Why are there often blood shortages?
+			</button>
+			<div class="panel">
+				<p>Most blood centers strive to maintain an optimum inventory level of a three-day supply. Due to
+					unpredictable demands for trauma patients, the inventory fluctuates hourly. When the blood supply
+					drops below a three-day level, blood centers begin alerting local donors to increase the inventory
+					to a safe operating level.</p>
+			</div>
+
+			<button class="accordion">
+				Are sterile supplies used?
+			</button>
+			<div class="panel">
+				<p>Based on AABB Standards and FDA regulations, all needles, tubing sets, collection bags and other
+					donation supplies are sterile, used once, and discarded in the trash to protect the donor, the
+					transfusion recipient, and the blood donor center staff.</p>
+			</div>
+
+
+			<script>
+				window.onload = function () {
+					var cookie = document.cookie;
+					var splitStr = cookie.split("=");
+					if (splitStr[1] == "nothing") {
+						//alert("Please Login");
+						//window.location.replace("login.html");
+					}
+					else {
+						var user_dom = document.getElementById("user_info");
+						user_dom.innerHTML = splitStr[1];
+						var login_dom = document.getElementById("login");
+						login_dom.innerHTML = "Logout";
+						login_dom.setAttribute("href", "home.html");
+						login_dom.setAttribute("onclick", "handle_logout()");
+					}
+				}
+				var acc = document.getElementsByClassName("accordion");
+				var i;
+				var faq = document.getElementById("faqsi");
+				var value = 1500;
+				for (i = 0; i < acc.length; i++) {
+					acc[i].onclick = function () {
+
+						this.classList.toggle("active");
+						var panel = this.nextElementSibling;
+						if (panel.style.maxHeight) {
+							panel.style.maxHeight = null;
+							value = value - 200;
+							faq.style.height = value + "px";
+						}
+						else {
+							panel.style.maxHeight = panel.scrollHeight + "px";
+							value = value + 200;
+							faq.style.height = value + "px";
+						}
+
+					}
+				}
+				function handle_logout() {
+					document.cookie = "user_id" + "=" + "nothing" + ";";
+					alert("Successfully Logged Out");
+					window.location.replace("home.html");
+
+				}
+			</script>
+
+
+			<!--FAQ's Section Ends Here-->
+		</div>
+
+</body>
+<!--Body Ends-->
+
+</html>

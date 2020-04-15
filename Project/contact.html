@@ -1,0 +1,147 @@
+<!--Homepage of Soulo Ride Website-->
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--Webpage Starts-->
+<html>
+    <!--Head Starts-->
+    <head>
+        <!--Document Level Styling if needed-->
+        <style>
+        /*Styling if any goes here*/
+
+        </style>
+        <title>Seva | Blood Bank</title><!--Title of the webpage-->
+    </head>
+<meta name="viewport" content="width=device-width"><!--Responsive Webpage-->
+    <!--Head Ends-->
+    <!--Body Starts-->
+    <body class="navbar">
+<!--Large Header Section Starts Here-->
+        <div >
+                <div class="topnav">
+                <img src="../Images/LOGO1.jpg" class="logo" />
+		<b class="log" id="user_info">&nbsp;&nbsp;SEVA</b>
+                <ul class="nav" style="margin-left:-21%">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="seek.html">Seek</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="faq.html"> FAQs </a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="login.html" id = "login">Login/SignUp</a></li>
+                </ul>
+                </div>
+        </div>
+	<center class="background">
+			<span class="heading" style="font-size:50px;"><b>	Contact Us	</b></span>
+			<hr style="width:60%; color:#ff6600;" />
+			<br/> <br/>
+			<p>
+				<span class="heading">	Main Headquarters	</span>
+				<center>
+					PES University,100 Feet Ring Road, Banashankari Stage 111,
+					<br/>
+					Bengaluru, Karnataka 560085
+				</center>
+				<br/>
+				<br></br>
+				<div >
+					<a href="../ChatBot/index.html" style="text-align:center;border:solid white 3px;padding-left:1%;padding-right:1%;padding-top:1%;padding-bottom:1%;height:20px;">Medical Assistant</a>
+				</div>
+				<!--<span class="heading">	Phone Number	</span>
+				<br/> <br/>
+				<center>
+					+91 9876543210, +91 9753108642
+				</center> -->
+				<br></br>
+			</p>
+			<div class="branch" style="height:280px; width:27%; left:8%; position:absolute; border:solid black 2px;">
+				<p style="text-align:center; padding-left:10%; padding-top:11%; padding-right:10%;">
+					<span class="heading">	Indiranagar	</span>
+					<center>
+						Seva Foundation,100 Feet Road, HAL Second Stage,
+						<br/>
+						Bengaluru, Karnataka 560038
+					</center>
+					<br/>
+					<span class="heading" style="font-size:18px;">	Phone Number	</span>
+					<br/>
+					<center>
+						+91 9887643210, +91 9758728642
+					</center>
+				</p>
+			</div>
+			<div class="branch" style="height:280px; width:27%; left:36.5%; position:absolute; border:solid black 2px;">
+				<p style="text-align:center; padding-left:10%; padding-top:8%; padding-right:10%;">
+					<span class="heading">	Jayanagar	</span>
+					<center>
+						Seva Foundation,32nd Cross, Old Sanjay Gandhi Hospital
+						<br/>
+						 Main Road, T block, Tilak Nagar,
+						<br/>
+						Bengaluru, Karnataka 560041
+					</center>
+					<br/>
+					<span class="heading" style="font-size:18px;">	Phone Number	</span>
+					<br/>
+					<center>
+						+91 9871234210, +91 9753105839
+					</center>
+				</p>
+			</div>
+			<div class="branch" style="height:280px; width:27%; left:65%; position:absolute; border:solid black 2px;">
+				<p style="text-align:center; padding-left:10%; padding-top:11%; padding-right:10%;">
+					<span class="heading">	Rajajinagar	</span>
+					<center>
+						Seva Foundation, 4th Block, Dr. Rajkumar Road,
+						<br/>
+						Bengaluru, Karnataka 560041
+					</center>
+					<br/>
+					<span class="heading" style="font-size:18px;">	Phone Number	</span>
+					<br/>
+					<center>
+						+91 9871258210, +91 9753305840
+					</center>
+				</p>
+			</div>
+			<br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+			<p style="font-size:25px;">	For more details email us at <span style="color:white;"> <i><u> seva@gmail.com	</u></i></span>	</p>
+		</center>
+<!--Large Header Section Ends Here-->
+<script>
+window.onload = function()
+{
+    var cookie = document.cookie;
+    var splitStr = cookie.split("=");
+    if(splitStr[1] == "nothing")
+    {
+        //alert("Please Login");
+        //window.location.replace("login.html");
+    }
+    else
+    {
+        var user_dom = document.getElementById("user_info");
+        user_dom.innerHTML = splitStr[1];
+        var login_dom = document.getElementById("login");
+        login_dom.innerHTML = "Logout";
+        login_dom.setAttribute("href","home.html");
+        login_dom.setAttribute("onclick","handle_logout()");
+    }
+}
+
+function handle_logout()
+{
+     document.cookie = "user_id" + "=" + "nothing" + ";";
+     alert("Successfully Logged Out");
+     window.location.replace("home.html");
+
+}
+</script>
+
+    </body>
+<!--Body Ends-->
+</html>

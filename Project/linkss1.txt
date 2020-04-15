@@ -1,0 +1,7 @@
+</div>
+			<div class="testimonial" style="height:350px; width:27%; left:8%; position:absolute; border:solid white 2px;">
+				<i class="fa fa-quote-left" aria-hidden="true" style="size:10px; color:white; padding-left:10%; padding-top:20%;"></i>
+				<p style="text-align:center; padding-left:10%; padding-top:2%; padding-right:10%;">I'm a double red cell donor. I began donating when I lived in Delhi and kept up the habit when I moved to Bangalore. My father always donated and inspired me to donate. It's great to reach my 5-gallon mark.  </p>
+				<p style="text-align:right; padding-right:15%;">	-Harshith Umesh </p>
+				<i class="fa fa-quote-right" aria-hidden="true" style="size:10px; color:white; padding-left:85%; padding-top:2%;"></i>
+			</div>
