@@ -303,6 +303,13 @@
             d["email"] = document.getElementById("email").value;
             d["blood_group"] = document.getElementById("bg").value;
             var password = document.getElementById("password").value;
+            console.log(d)
+            console.log(valid_date.length)
+            if(d["user_name"].length==0 || d["sex"]=="Choose Gender" || valid_date.length==20 ||d["address"].length==0 ||d["email"].length==0 || d["blood_group"]=="Choose Blood Group"||password.length==0)
+            {
+                alert("Please fill all fields")
+                return
+            }
             var sha_password = SHA1(password);
             d["password"] = sha_password;
             var req = new XMLHttpRequest();

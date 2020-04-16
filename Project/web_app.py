@@ -19,14 +19,6 @@ check_var = 1
 app = Flask(__name__)
 CORS(app,support_credentials = True)
 
-def handle_seek(userid):
-    time.sleep(60)
-    client = MongoClient()
-    db = client["blood_bank_db"]
-    seek = db.seek_table
-    seek.update({"user_id":userid},{"$set":{"status":"available"}})
-    client.close()
-
 @app.after_request
 def after_request(response):
   response.headers.add('Access-Control-Allow-Origin', '*')
@@ -41,7 +33,7 @@ def trial_connection():
     trial_dict["trial"] = "ok"
     global check_var
     check_var = check_var + 1
-    print(check_var)
+    #print(check_var)
     return jsonify(trial_dict),200
 
 @app.route("/donate",methods=["POST"])
@@ -54,16 +46,16 @@ def donate_blood():
     date = day + "/" + month + "/" + year
     info = request.json["info"]
     bg = request.json["blood_group"]
-    print("before",bg)
+    #print("before",bg)
     bgg=bg
     rh=bg[-1]
     bg=bg[:-1]
-    print("rh",rh)
+    #print("rh",rh)
     if(rh=="+"):
         bg+="%2B"
     else:
         bg+="%2D"
-    print("after",bg)
+    #print("after",bg)
     client = MongoClient()
     db = client["blood_bank_db"]
     donar = db.donate_table
@@ -84,8 +76,8 @@ def donate_blood():
     res=requests.get(link)
     y=json.loads(res.text)
     av=int(y["avail"])
-    seks=list(seek.find({"blood_group":bgg,"status":"pending"}))
-    for i in seks:
+    seeks=list(seek.find({"blood_group":bgg,"status":"pending"}))
+    for i in seeks:
         if(int(i["quantity"])<=av):
             link="http://127.0.0.1:5000/writeblood?bg="+bg+"&qt=%2D"+str(i["quantity"])
             res=requests.get(link)
@@ -94,7 +86,7 @@ def donate_blood():
 
 @app.route("/seek",methods=["POST"])
 def seek_blood():
-    print(request.json)
+    #print(request.json)
     user_id = request.json["user_id"]
     quantity = int(request.json["quantity"])
     info = request.json["info"]
@@ -106,7 +98,7 @@ def seek_blood():
     else:
         bg+="%2D"
     link="http://127.0.0.1:5000/readblood?bg="+bg
-    #print(link)
+    ##print(link)
     res=requests.get(link)
     y=json.loads(res.text)
     av=int(y["avail"])
@@ -114,7 +106,7 @@ def seek_blood():
     # for i in range(len(res)):
     #     d["group"]=bg
     #     d["avail"]=res[i]["avail"]
-    # print(d)
+    # #print(d)
     client = MongoClient()
     db = client["blood_bank_db"]
     seek = db.seek_table
@@ -131,7 +123,7 @@ def seek_blood():
     else:
         data = {"user_id":user_id,"quantity":quantity,"info":info,"blood_group":blood_group,"status":"pending","date":date,"randid":randi}
     seek.insert_one(data)
-    print("done")
+    #print("done")
     client.close()
     return jsonify({}),200
 
@@ -186,7 +178,7 @@ def get_status():
     client = MongoClient()
     db = client["blood_bank_db"]
     seek = db.seek_table
-    print("request json",request.json)
+    #print("request json",request.json)
     user_id = request.json["user_id"]
     res = list(seek.find({"user_id":user_id}))
     d = dict()
@@ -254,14 +246,14 @@ def testit():
     client = MongoClient()
     db = client["blood_bank_db"]
     seek = db.seek_table
-    print("request json",request.json)
+    #print("request json",request.json)
     user_id = request.json["user_id"]
     res = list(seek.find({"user_id":user_id}))
-    #print(res)
+    ##print(res)
     
     li=[]
     for i in range(len(res)):
-        print("i",res[i])
+        #print("i",res[i])
         d = {}
 
         d["status"] = res[i]["status"]
@@ -270,7 +262,7 @@ def testit():
         d["quantity"] = res[i]["quantity"]
         d["randid"] =res[i]["randid"]
         li.append(d)
-    print("li",li)
+    #print("li",li)
     client.close()
     return jsonify(li),200
 
@@ -278,7 +270,7 @@ def testit():
 def readblood():
     client=MongoClient()
     bg = request.args.get('bg')
-    print(bg)
+    #print(bg)
     db = client["blood_bank_db"]
     res=list(db.blood_data.find({"group":bg}))
     d={}
@@ -286,17 +278,17 @@ def readblood():
         d["group"]=bg
         d["avail"]=res[i]["avail"]
     client.close()
-    print("read:",d)
+    #print("read:",d)
     return jsonify(d)
 
 @app.route("/writeblood",methods=["GET"])
 def writeblood():
-    print("came here")
+    #print("came here")
     client=MongoClient()
     bg = request.args.get('bg')
     qt = int(request.args.get('qt'))
-    print(bg)
-    print(qt)
+    #print(bg)
+    #print(qt)
     db = client["blood_bank_db"]
     res=list(db.blood_data.find({"group":bg}))
     d={}
@@ -304,7 +296,7 @@ def writeblood():
         d["group"]=bg
         d["avail"]=res[i]["avail"]
     il=int(d["avail"])
-    print(il)
+    #print(il)
     il+=qt
     db.blood_data.update({"group":bg},{"$set":{"avail":il}})
     client.close()
